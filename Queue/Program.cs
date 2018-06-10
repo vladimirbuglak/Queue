@@ -10,7 +10,7 @@ namespace Queue
 
             while (true)
             {
-                Console.WriteLine("1 - Crate Queue");
+                Console.WriteLine("1 - Create Queue");
                 Console.WriteLine("2 - Display Queue");
                 Console.WriteLine("3 - Sort queue by user age");
                 Console.WriteLine("4 - Sort queue by user name");
