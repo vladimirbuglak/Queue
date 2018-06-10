@@ -34,7 +34,7 @@ namespace Queue
         {
             if (Head == null)
             {
-                throw new Exception("Queue is empty");
+                return default(T);
             }
 
             var value = Head.Value;
@@ -65,7 +65,7 @@ namespace Queue
         {
             if (Head == null)
             {
-                throw new Exception("Queue is empty");
+                return default(T);
             }
 
             return Head.Value;
@@ -106,22 +106,5 @@ namespace Queue
                 Next = next;
             }
         }
-    }
-
-    public static class Ex
-    {
-        //public static void Sort<T, TKey>(this Queue<T> queue, Func<T, TKey> selector) where T : IComparable<T>
-        //{
-        //    var node = queue;
-
-        //    while (node != null)
-        //    {
-        //        if (selector(node.Value) > selector(node.Next.Value))
-        //        {
-
-        //        }
-        //        node = node.Next;
-        //    }
-        //}
     }
 }

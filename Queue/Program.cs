@@ -6,15 +6,55 @@ namespace Queue
     {
         static void Main(string[] args)
         {
-            var queue = GenerateRandomQueue(10);
+            var queue = new Queue<User>();
 
-            queue.Print(Console.WriteLine);
+            while (true)
+            {
+                Console.WriteLine("1 - Crate Queue");
+                Console.WriteLine("2 - Display Queue");
+                Console.WriteLine("3 - Sort queue by user age");
+                Console.WriteLine("4 - Sort queue by user name");
+                Console.WriteLine("5 - Add user to queue");
+                Console.WriteLine("6 - Get user from queue");
+                Console.WriteLine("7 - Exit");
 
-            queue.Sort(x => x.Age);
+                var line = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("After sorting");
+                switch (line)
+                {
+                    case 1:
+                        queue = GenerateRandomQueue(5);
+                        break;
+                    case 2:
+                        queue.Print(Console.WriteLine);
+                        break;
+                    case 3:
+                        queue.Sort(x => x.Age);
+                        break;
+                    case 4:
+                        queue.Sort(x => x.Name);
+                        break;
+                    case 5:
+                        Console.WriteLine("Input user name");
+                        var userName = Console.ReadLine();
 
-            queue.Print(Console.WriteLine);
+                        Console.WriteLine("Input user age");
+                        var age = int.Parse(Console.ReadLine());
+
+                        queue.Enqueue(new User
+                        {
+                            Age = age,
+                            Name = userName
+                        });
+
+                        break;
+                    case 6:
+                        queue.Dequeue();
+                        break;
+                    case 7:
+                        return;
+                }
+            }
         }
 
         public static Queue<User> GenerateRandomQueue(int size)
